@@ -1,8 +1,9 @@
 'use strict'
 
 let apiUrl
+
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
+  production: 'https://mcdennis-review-board.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
