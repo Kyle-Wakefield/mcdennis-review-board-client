@@ -54,9 +54,21 @@ const onSignOut = function (event) {
     .catch(ui.onError)
 }
 
+const onCreateReview = function (event) {
+  // Prevent the page from refreshing when the button is clicked
+  event.preventDefault()
+  const formData = getFormFields(event.target)
+  console.log(formData)
+
+  api.createReview(formData)
+    .then(ui.onCreateReviewSuccess)
+    .catch(ui.onError)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onCreateReview
 }

@@ -44,9 +44,22 @@ const signOut = function () {
   })
 }
 
+const createReview = function (formData) {
+  console.log('createReview')
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/reviews',
+    headers: {
+      Authorization: 'Bearer ' + store.token
+    },
+    data: formData
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createReview
 }

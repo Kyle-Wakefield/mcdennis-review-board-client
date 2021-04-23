@@ -9,12 +9,8 @@ const onError = function (err) {
 const onSuccess = function (action, response) {
   console.log(action)
   console.log(response)
-  $('#sign-up-modal').modal('hide')
-  $('#sign-up-form').trigger('reset')
-  $('#sign-in-modal').modal('hide')
-  $('#sign-in-form').trigger('reset')
-  $('#change-password-modal').modal('hide')
-  $('#change-password-form').trigger('reset')
+  $('.modal').modal('hide')
+  $('form').trigger('reset')
 }
 
 const onSignUpSuccess = function (response) {
@@ -35,10 +31,15 @@ const onSignOutSuccess = function (response) {
   onSuccess('Sign Out Success', response)
 }
 
+const onCreateReviewSuccess = function (response) {
+  onSuccess('Create Review Success', response)
+}
+
 module.exports = {
   onError,
   onSignUpSuccess,
   onSignInSuccess,
   onChangePasswordSuccess,
-  onSignOutSuccess
+  onSignOutSuccess,
+  onCreateReviewSuccess
 }

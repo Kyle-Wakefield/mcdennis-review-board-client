@@ -8,6 +8,11 @@ body {
   background-color: $mcdennis-yellow;
 }
 
+h2 {
+  font-weight: bold;
+  text-align: center;
+}
+
 .logo {
   margin: 10px;
   width: auto;
@@ -21,13 +26,13 @@ body {
 .left-column {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 20%;
 }
 
 .main-column {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 80%;
 }
 
 .top-bar {
@@ -49,4 +54,16 @@ body {
   background-color: $mcdennis-red;
   color: $plain-white;
   font-weight: bold;
+}
+
+.review {
+  background-color: $mcdennis-red;
+  color: $plain-white;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px;
+}
+
+.title-input {
+  width: 100%;
 }
