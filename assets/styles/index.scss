@@ -72,12 +72,14 @@ h2 {
 
 .review-list {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .single-review-div {
   background-color: $plain-white;
   height: auto;
+  margin-bottom: 15px;
+  margin-left: 30px; // TEMPORARY FIX
   padding: 5px;
   width: 95%;
 }

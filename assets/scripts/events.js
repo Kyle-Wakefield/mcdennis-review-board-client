@@ -65,10 +65,17 @@ const onCreateReview = function (event) {
     .catch(ui.onError)
 }
 
+const onPageLoad = function () {
+  api.index()
+    .then(ui.onIndexSuccess)
+    .catch(ui.onError)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onCreateReview
+  onCreateReview,
+  onPageLoad
 }

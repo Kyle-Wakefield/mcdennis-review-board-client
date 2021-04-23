@@ -56,10 +56,19 @@ const createReview = function (formData) {
   })
 }
 
+const index = function () {
+  console.log('index')
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/reviews'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  createReview
+  createReview,
+  index
 }
