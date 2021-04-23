@@ -3,6 +3,8 @@
 $mcdennis-yellow: #ffc90e;
 $mcdennis-red: #ff0700;
 $plain-white: #fff;
+$plain-black: #000;
+$gold: #705711;
 
 body {
   background-color: $mcdennis-yellow;
@@ -66,4 +68,52 @@ h2 {
 
 .title-input {
   width: 100%;
+}
+
+.review-list {
+  display: flex;
+  justify-content: center;
+}
+
+.single-review-div {
+  background-color: $plain-white;
+  height: auto;
+  padding: 5px;
+  width: 95%;
+}
+
+.single-review-div * {
+  background-color: $plain-white;
+  color: $gold;
+}
+
+.divider {
+  border-top: 3px solid $plain-black;
+  margin: 5px -5px;
+}
+
+.review-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.review-header span {
+  color: $gold;
+  font-size: 27px;
+  margin: 0 5px;
+}
+
+.review-header .title-span {
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.review-body {
+  font-size: 20px;
+  margin: 0 6px 15px 6px;
+}
+
+.black-border {
+  border: 5px solid $plain-black;
 }
