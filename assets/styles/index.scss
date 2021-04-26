@@ -17,8 +17,8 @@ h2 {
 
 img {
   cursor: pointer;
-  height: 13.5%;
   margin: 10px;
+  max-height: 15%;
   width: auto;
 
   &:hover {
@@ -45,6 +45,7 @@ img {
 
 .top-bar {
   background-color: $mcdennis-red;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -67,6 +68,7 @@ img {
 
 .review {
   background-color: $mcdennis-red;
+  border-radius: 5px;
   color: $plain-white;
   font-weight: bold;
   margin: 10px;
