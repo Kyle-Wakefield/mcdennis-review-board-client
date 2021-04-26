@@ -43,17 +43,27 @@ const onCreateReviewSuccess = function (response) {
 const onIndexSuccess = function (response) {
   onSuccess('Index Success', response)
 
+  // Change the name of the review list based on the current index path
+  if (store.indexPath === '/reviews') {
+    $('#review-list-header').html('All Reviews')
+  } else if (store.indexPath.match('/reviews/users')) {
+    $('#review-list-header').html(store.indexedUser + '\'s Reviews')
+  } else if (store.indexPath.match('/reviews/items')) {
+    $('#review-list-header').html(store.indexedItem + ' Reviews')
+  }
+
   // reverse the order of the reviews so they'll show up newest to oldest
   response.reviews.reverse()
   let reviewHtml = ''
   response.reviews.forEach((review) => {
+    const itemName = review.item.replace('_', ' ')
     // add the content of the review
     reviewHtml += `
       <div class="single-review-div black-border" data-_id="${review._id}">
         <div class="review-header">
           <span class="title-span">${review.title}</span>
-          <span>Review of: ${review.item}</span>
-          <span>Written By: ${review.owner}</span>
+          <span>Review of: ${itemName}</span>
+          <span>Written By: ${review.ownerEmail}</span>
         </div>
         <hr class="divider">
         <div class="review-body">

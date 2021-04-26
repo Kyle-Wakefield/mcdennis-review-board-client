@@ -93,6 +93,7 @@ const onIndexAll = function () {
 
 const onIndexSelf = function () {
   console.log('onIndexSelf')
+  store.indexedUser = store.user.email
   store.indexPath = '/reviews/users/' + store.user._id
   onIndex()
 }
@@ -100,6 +101,7 @@ const onIndexSelf = function () {
 const onIndexItem = function (event) {
   console.log('onIndexItem')
   const item = event.target.dataset.item
+  store.indexedItem = item.replace('_', ' ')
   store.indexPath = '/reviews/items/' + item
   onIndex()
 }
