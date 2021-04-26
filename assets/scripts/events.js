@@ -27,7 +27,10 @@ const onSignIn = function (event) {
   const formData = getFormFields(event.target)
   console.log(formData)
   api.signIn(formData)
-    .then(ui.onSignInSuccess)
+    .then(response => {
+      ui.onSignInSuccess(response)
+      onIndex()
+    })
     .catch(ui.onError)
 }
 
@@ -50,7 +53,10 @@ const onSignOut = function (event) {
   console.log('onSignOut')
 
   api.signOut()
-    .then(ui.onSignOutSuccess)
+    .then(response => {
+      ui.onSignOutSuccess(response)
+      onIndex()
+    })
     .catch(ui.onError)
 }
 
@@ -65,10 +71,37 @@ const onCreateReview = function (event) {
     .catch(ui.onError)
 }
 
-const onPageLoad = function () {
+const onIndex = function () {
+  console.log('onIndex')
   api.index()
-    .then(ui.onIndexSuccess)
+    .then((response) => {
+      ui.onIndexSuccess(response)
+      $('.delete-review-button').on('click', onDeleteReview)
+    })
     .catch(ui.onError)
+}
+
+const onIndexAll = function () {
+  console.log('onIndexAll')
+  store.indexPath = '/reviews'
+  onIndex()
+}
+
+// const onIndexSelf = function () {
+//   console.log('onIndexSelf')
+//   store.indexPath = '/reviews/users/' + store.user._id
+//   onIndex()
+// }
+
+const onIndexItem = function (event) {
+  console.log('onIndexItem')
+  const item = event.target.dataset.item
+  store.indexPath = '/reviews/items/' + item
+  onIndex()
+}
+
+const onDeleteReview = function (event) {
+  console.log(event.target)
 }
 
 module.exports = {
@@ -77,5 +110,7 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onCreateReview,
-  onPageLoad
+  onIndexAll,
+  // onIndexSelf,
+  onIndexItem
 }

@@ -27,7 +27,7 @@ const changePassword = function (formData) {
     method: 'PATCH',
     url: config.apiUrl + '/change-password',
     headers: {
-      Authorization: 'Bearer ' + store.token
+      Authorization: 'Bearer ' + store.user.token
     },
     data: formData
   })
@@ -39,7 +39,7 @@ const signOut = function () {
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',
     headers: {
-      Authorization: 'Bearer ' + store.token
+      Authorization: 'Bearer ' + store.user.token
     }
   })
 }
@@ -50,17 +50,17 @@ const createReview = function (formData) {
     method: 'POST',
     url: config.apiUrl + '/reviews',
     headers: {
-      Authorization: 'Bearer ' + store.token
+      Authorization: 'Bearer ' + store.user.token
     },
     data: formData
   })
 }
 
 const index = function () {
-  console.log('index')
+  console.log('index ' + store.indexPath)
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/reviews'
+    url: config.apiUrl + store.indexPath
   })
 }
 

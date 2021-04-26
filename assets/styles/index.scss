@@ -15,7 +15,8 @@ h2 {
   text-align: center;
 }
 
-.logo {
+img {
+  cursor: pointer;
   margin: 10px;
   width: auto;
 }
@@ -50,6 +51,7 @@ h2 {
 .btn-dark {
   color: $mcdennis-yellow;
   font-weight: bold;
+  margin: 0 5px;
 }
 
 .modal-content {
@@ -71,6 +73,7 @@ h2 {
 }
 
 .review-list {
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
@@ -79,12 +82,11 @@ h2 {
   background-color: $plain-white;
   height: auto;
   margin-bottom: 15px;
-  margin-left: 30px; // TEMPORARY FIX
   padding: 5px;
   width: 95%;
 }
 
-.single-review-div * {
+.single-review-div div {
   background-color: $plain-white;
   color: $gold;
 }
@@ -113,7 +115,13 @@ h2 {
 
 .review-body {
   font-size: 20px;
-  margin: 0 6px 15px 6px;
+  margin: 0 6px 15px;
+}
+
+.review-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .black-border {

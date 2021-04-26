@@ -1,6 +1,6 @@
 'use strict'
 
-const store = require('./store.js')
+const store = require('./store')
 
 const onError = function (err) {
   console.log(err)
@@ -19,8 +19,10 @@ const onSignUpSuccess = function (response) {
 
 const onSignInSuccess = function (response) {
   onSuccess('Sign In Success', response)
-  store.token = response.user.token
-  console.log(store.token)
+  store.user = response.user
+  console.log(store.user)
+  $('.signed-in-feature').show()
+  $('.signed-out-feature').hide()
 }
 
 const onChangePasswordSuccess = function (response) {
@@ -29,6 +31,9 @@ const onChangePasswordSuccess = function (response) {
 
 const onSignOutSuccess = function (response) {
   onSuccess('Sign Out Success', response)
+  $('.signed-out-feature').show()
+  $('.signed-in-feature').hide()
+  store.user = null
 }
 
 const onCreateReviewSuccess = function (response) {
@@ -37,10 +42,13 @@ const onCreateReviewSuccess = function (response) {
 
 const onIndexSuccess = function (response) {
   onSuccess('Index Success', response)
+
+  // reverse the order of the reviews so they'll show up newest to oldest
+  response.reviews.reverse()
   let reviewHtml = ''
   response.reviews.forEach((review) => {
+    // add the content of the review
     reviewHtml += `
-    <div id="review-list-div" class="review-list">
       <div class="single-review-div black-border">
         <div class="review-header">
           <span class="title-span">${review.title}</span>
@@ -51,9 +59,17 @@ const onIndexSuccess = function (response) {
         <div class="review-body">
           ${review.body}
         </div>
-      </div>
-    </div>
     `
+    // if the user is logged in and owns the review, add edit and delete buttons
+    if ((store.user !== null) && (store.user._id === review.owner)) {
+      reviewHtml += `
+        <div class="review-footer">
+          <button class="btn btn-dark edit-review-button">Edit Review</button>
+          <button class="btn btn-dark delete-review-button">Delete Review</button>
+        </div>
+      `
+    }
+    reviewHtml += '</div>'
   })
   $('#review-list-div').html(reviewHtml)
 }
