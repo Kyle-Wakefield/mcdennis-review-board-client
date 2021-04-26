@@ -81,6 +81,9 @@ const onIndex = function () {
     .then((response) => {
       ui.onIndexSuccess(response)
       $('.delete-review-button').on('click', onDeleteReview)
+      $('.edit-review-button').on('click', (event) => {
+        store.editedReview = event.target.parentElement.parentElement.dataset._id
+      })
     })
     .catch(ui.onError)
 }
@@ -117,6 +120,21 @@ const onDeleteReview = function (event) {
     .catch(ui.onError)
 }
 
+const onEditReview = function (event) {
+  event.preventDefault()
+  console.log('onEditReview ' + event.target)
+  console.log(store.editedReview)
+
+  const formData = getFormFields(event.target)
+  console.log(formData)
+  api.editReview(store.editedReview, formData)
+    .then((response) => {
+      ui.onEditReviewSuccess(response)
+      onIndex()
+    })
+    .catch(ui.onError)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -125,5 +143,6 @@ module.exports = {
   onCreateReview,
   onIndexAll,
   onIndexSelf,
-  onIndexItem
+  onIndexItem,
+  onEditReview
 }

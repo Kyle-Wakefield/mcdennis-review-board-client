@@ -20,4 +20,5 @@ $(() => {
   $('#my-reviews-button').on('click', events.onIndexSelf)
   $('.item-img').on('click', events.onIndexItem)
   $('.logo').on('click', events.onIndexAll)
+  $('#edit-review-form').on('submit', events.onEditReview)
 })

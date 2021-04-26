@@ -84,6 +84,48 @@
               </div>
             </div>
 
+            <button class="btn btn-dark signed-in-feature" id="create-review-button" data-toggle="modal" data-target="#create-review-modal">Leave A Review</button>
+            <div class="modal fade" id="create-review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Leave A Review</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form id="create-review-form" class="review">
+                      <div class="row ml-1 justify-content-center align-items-end">
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Title</label>
+                          <input type="text" class="form-control title-input" name="review[title]" required>
+                        </div>
+                        <div class="mb-3 col-6 justify-content-left">
+                          <label class="form-label">Item:</label>
+                          <select name="review[item]" class="ml-2">
+                            <option value="default">Select An Item</option>
+                            <option value="Big_Den">Big Den</option>
+                            <option value="Half_Pounder">Half Pounder</option>
+                            <option value="Chicken_McBucket">Chicken McBucket</option>
+                            <option value="Italian_Fries">Italian Fries</option>
+                            <option value="McBlurry">McBlurry</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="mb-3 col-12">
+                        <label class="form-label">Text</label>
+                        <textarea rows="5" class="form-control body-input" name="review[body]" required></textarea>
+                      </div>
+                      <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-dark">Sumbit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <button class="btn btn-dark signed-in-feature" id="my-reviews-button">My Reviews</button>
 
             <button class="btn btn-dark signed-in-feature" id="change-password-button" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
@@ -117,18 +159,17 @@
 
             <button class="btn btn-dark signed-in-feature" id="sign-out-button">Sign Out</button>
 
-            <button class="btn btn-dark signed-in-feature" id="create-review-button" data-toggle="modal" data-target="#create-review-modal">Leave A Review</button>
-            <div class="modal fade" id="create-review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="edit-review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">Leave A Review</h5>
+                    <h5 class="modal-title">Edit Review</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form id="create-review-form" class="review">
+                    <form id="edit-review-form" class="review">
                       <div class="row ml-1 justify-content-center align-items-end">
                         <div class="mb-3 col-6">
                           <label class="form-label">Title</label>
@@ -136,7 +177,7 @@
                         </div>
                         <div class="mb-3 col-6 justify-content-left">
                           <label class="form-label">Item:</label>
-                          <select name="review[item]" class="ml-2" id="item-selector">
+                          <select name="review[item]" class="ml-2">
                             <option value="default">Select An Item</option>
                             <option value="Big_Den">Big Den</option>
                             <option value="Half_Pounder">Half Pounder</option>

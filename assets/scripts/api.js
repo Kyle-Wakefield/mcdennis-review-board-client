@@ -75,6 +75,18 @@ const deleteReview = function (id) {
   })
 }
 
+const editReview = function (id, formData) {
+  console.log('editReview')
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/reviews/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: formData
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -82,5 +94,6 @@ module.exports = {
   signOut,
   createReview,
   index,
-  deleteReview
+  deleteReview,
+  editReview
 }

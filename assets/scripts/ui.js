@@ -74,7 +74,7 @@ const onIndexSuccess = function (response) {
     if ((store.user !== null) && (store.user._id === review.owner)) {
       reviewHtml += `
         <div class="review-footer">
-          <button class="btn btn-dark edit-review-button">Edit Review</button>
+          <button class="btn btn-dark edit-review-button" data-toggle="modal" data-target="#edit-review-modal">Edit Review</button>
           <button class="btn btn-dark delete-review-button">Delete Review</button>
         </div>
       `
@@ -88,6 +88,10 @@ const onDeleteReviewSuccess = function (response) {
   onSuccess('Delete Success', response)
 }
 
+const onEditReviewSuccess = function (response) {
+  onSuccess('Edit Success', response)
+}
+
 module.exports = {
   onError,
   onSignUpSuccess,
@@ -96,5 +100,6 @@ module.exports = {
   onSignOutSuccess,
   onCreateReviewSuccess,
   onIndexSuccess,
-  onDeleteReviewSuccess
+  onDeleteReviewSuccess,
+  onEditReviewSuccess
 }
