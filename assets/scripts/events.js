@@ -55,6 +55,7 @@ const onSignOut = function (event) {
   api.signOut()
     .then(response => {
       ui.onSignOutSuccess(response)
+      store.indexPath = '/reviews'
       onIndex()
     })
     .catch(ui.onError)
@@ -67,7 +68,10 @@ const onCreateReview = function (event) {
   console.log(formData)
 
   api.createReview(formData)
-    .then(ui.onCreateReviewSuccess)
+    .then(response => {
+      ui.onCreateReviewSuccess(response)
+      onIndex()
+    })
     .catch(ui.onError)
 }
 
@@ -87,11 +91,11 @@ const onIndexAll = function () {
   onIndex()
 }
 
-// const onIndexSelf = function () {
-//   console.log('onIndexSelf')
-//   store.indexPath = '/reviews/users/' + store.user._id
-//   onIndex()
-// }
+const onIndexSelf = function () {
+  console.log('onIndexSelf')
+  store.indexPath = '/reviews/users/' + store.user._id
+  onIndex()
+}
 
 const onIndexItem = function (event) {
   console.log('onIndexItem')
@@ -101,7 +105,14 @@ const onIndexItem = function (event) {
 }
 
 const onDeleteReview = function (event) {
-  console.log(event.target)
+  console.log('onDeleteReview ' + event.target)
+  console.log(event.target.parentElement.parentElement.dataset._id)
+  api.deleteReview(event.target.parentElement.parentElement.dataset._id)
+    .then((response) => {
+      ui.onDeleteReviewSuccess(response)
+      onIndex()
+    })
+    .catch(ui.onError)
 }
 
 module.exports = {
@@ -111,6 +122,6 @@ module.exports = {
   onSignOut,
   onCreateReview,
   onIndexAll,
-  // onIndexSelf,
+  onIndexSelf,
   onIndexItem
 }

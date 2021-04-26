@@ -49,7 +49,7 @@ const onIndexSuccess = function (response) {
   response.reviews.forEach((review) => {
     // add the content of the review
     reviewHtml += `
-      <div class="single-review-div black-border">
+      <div class="single-review-div black-border" data-_id="${review._id}">
         <div class="review-header">
           <span class="title-span">${review.title}</span>
           <span>Review of: ${review.item}</span>
@@ -74,6 +74,10 @@ const onIndexSuccess = function (response) {
   $('#review-list-div').html(reviewHtml)
 }
 
+const onDeleteReviewSuccess = function (response) {
+  onSuccess('Delete Success', response)
+}
+
 module.exports = {
   onError,
   onSignUpSuccess,
@@ -81,5 +85,6 @@ module.exports = {
   onChangePasswordSuccess,
   onSignOutSuccess,
   onCreateReviewSuccess,
-  onIndexSuccess
+  onIndexSuccess,
+  onDeleteReviewSuccess
 }

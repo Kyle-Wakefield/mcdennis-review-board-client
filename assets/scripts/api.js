@@ -64,11 +64,23 @@ const index = function () {
   })
 }
 
+const deleteReview = function (id) {
+  console.log('deleteReview')
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/reviews/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   createReview,
-  index
+  index,
+  deleteReview
 }
