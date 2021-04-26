@@ -15,7 +15,7 @@ const onSignUp = function (event) {
   console.log(formData)
   api.signUp(formData)
     .then(ui.onSignUpSuccess)
-    .catch(ui.onError)
+    .catch(ui.onSignUpError)
 }
 
 const onSignIn = function (event) {
@@ -31,7 +31,7 @@ const onSignIn = function (event) {
       ui.onSignInSuccess(response)
       onIndex()
     })
-    .catch(ui.onError)
+    .catch(ui.onSignInError)
 }
 
 const onChangePassword = function (event) {
@@ -44,7 +44,7 @@ const onChangePassword = function (event) {
   console.log(formData)
   api.changePassword(formData)
     .then(ui.onChangePasswordSuccess)
-    .catch(ui.onError)
+    .catch(ui.onChangePasswordError)
 }
 
 const onSignOut = function (event) {
@@ -72,7 +72,7 @@ const onCreateReview = function (event) {
       ui.onCreateReviewSuccess(response)
       onIndex()
     })
-    .catch(ui.onError)
+    .catch(ui.onCreateReviewError)
 }
 
 const onIndex = function () {
@@ -132,7 +132,7 @@ const onEditReview = function (event) {
       ui.onEditReviewSuccess(response)
       onIndex()
     })
-    .catch(ui.onError)
+    .catch(ui.onEditReviewError)
 }
 
 module.exports = {

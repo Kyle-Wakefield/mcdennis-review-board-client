@@ -6,6 +6,36 @@ const onError = function (err) {
   console.log(err)
 }
 
+const onSignUpError = function (err) {
+  $('#sign-up-error-div').show()
+  setTimeout(() => $('#sign-up-error-div').hide(), 3000)
+  onError(err)
+}
+
+const onSignInError = function (err) {
+  $('#sign-in-error-div').show()
+  setTimeout(() => $('#sign-in-error-div').hide(), 3000)
+  onError(err)
+}
+
+const onChangePasswordError = function (err) {
+  $('#change-password-error-div').show()
+  setTimeout(() => $('#change-password-error-div').hide(), 3000)
+  onError(err)
+}
+
+const onCreateReviewError = function (err) {
+  $('#create-review-error-div').show()
+  setTimeout(() => $('#create-review-error-div').hide(), 3000)
+  onError(err)
+}
+
+const onEditReviewError = function (err) {
+  $('#edit-review-error-div').show()
+  setTimeout(() => $('#edit-review-error-div').hide(), 3000)
+  onError(err)
+}
+
 const onSuccess = function (action, response) {
   console.log(action)
   console.log(response)
@@ -23,6 +53,7 @@ const onSignInSuccess = function (response) {
   console.log(store.user)
   $('.signed-in-feature').show()
   $('.signed-out-feature').hide()
+  $('#signed-in-as-div').html('Logged in as: ' + store.user.email)
 }
 
 const onChangePasswordSuccess = function (response) {
@@ -34,6 +65,7 @@ const onSignOutSuccess = function (response) {
   $('.signed-out-feature').show()
   $('.signed-in-feature').hide()
   store.user = null
+  $('#signed-in-as-div').html('You\'re not logged in. Log in to leave a review.')
 }
 
 const onCreateReviewSuccess = function (response) {
@@ -94,6 +126,11 @@ const onEditReviewSuccess = function (response) {
 
 module.exports = {
   onError,
+  onSignUpError,
+  onSignInError,
+  onCreateReviewError,
+  onEditReviewError,
+  onChangePasswordError,
   onSignUpSuccess,
   onSignInSuccess,
   onChangePasswordSuccess,

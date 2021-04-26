@@ -17,6 +17,10 @@
         <div class="left-column">
           <img class="logo" src="https://i.imgur.com/InuYdak.png" alt="McDennis Logo">
           <img class="item-img" data-item="Big_Den" src="https://www.mcdonalds.com/is/image/content/dam/usa/nfl/nutrition/items/hero/desktop/t-mcdonalds-Big-Mac.jpg" alt="Big Den">
+          <img class="item-img" data-item="Half_Pounder" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.jpg/1200px-McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.jpg" alt="Chicken McBucket">
+          <img class="item-img" data-item="Chicken_McBucket" src="https://www.kindpng.com/picc/m/384-3844221_fried-chicken-bucket-png-transparent-png.png" alt="Chicken McBucket">
+          <img class="item-img" data-item="Italian_Fries" src="https://www.seriouseats.com/2018/04/20180309-french-fries-vicky-wasik-15.jpg" alt="Italian Fries">
+          <img class="item-img" data-item="McBlurry" src="https://www.wideopeneats.com/wp-content/uploads/2021/01/ezgif.com-resize36-720x405.jpg" alt="McBlurry">
         </div>
 
         <div class="main-column">
@@ -49,18 +53,19 @@
                       <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-dark">Sign Up</button>
                       </div>
+                      <div class="error-div" id="sign-up-error-div">Sign Up Failed</div>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
 
-            <button class="btn btn-dark signed-out-feature" id="sign-in-button" data-toggle="modal" data-target="#sign-in-modal">Sign In</button>
+            <button class="btn btn-dark signed-out-feature" id="sign-in-button" data-toggle="modal" data-target="#sign-in-modal">Log In</button>
             <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">Sign In</h5>
+                    <h5 class="modal-title">Log In</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -78,6 +83,7 @@
                       <div class="d-flex justify-content-center col-12">
                         <button type="submit" class="btn btn-dark">Log In</button>
                       </div>
+                      <div class="error-div" id="sign-in-error-div">Log In Failed</div>
                     </form>
                   </div>
                 </div>
@@ -120,6 +126,7 @@
                       <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-dark">Sumbit</button>
                       </div>
+                      <div class="error-div" id="create-review-error-div">Review Submission Failed</div>
                     </form>
                   </div>
                 </div>
@@ -149,15 +156,16 @@
                         <input type="password" class="form-control" name="passwords[new]" placeholder="New Password" required>
                       </div>
                       <div class="d-flex justify-content-center col-12">
-                        <button type="submit" class="btn btn-dark">Log In</button>
+                        <button type="submit" class="btn btn-dark">Change Password</button>
                       </div>
+                      <div class="error-div" id="change-password-error-div">Change Password Failed</div>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
 
-            <button class="btn btn-dark signed-in-feature" id="sign-out-button">Sign Out</button>
+            <button class="btn btn-dark signed-in-feature" id="sign-out-button">Log Out</button>
 
             <div class="modal fade" id="edit-review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -194,44 +202,17 @@
                       <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-dark">Sumbit</button>
                       </div>
+                      <div class="error-div" id="edit-review-error-div">Review Edit Failed</div>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="signed-in-as">
-              You're not signed in
+            <div class="signed-in-as" id="signed-in-as-div">
+              You're not logged in. Log in to leave a review.
             </div>
           </div>
-
-          <!-- <form id="create-review-form" class="review signed-in-feature">
-            <h2>Leave A Review</h2>
-            <div class="row ml-1 justify-content-center align-items-end">
-              <div class="mb-3 col-6">
-                <label class="form-label">Title</label>
-                <input type="text" class="form-control title-input" name="review[title]" required>
-              </div>
-              <div class="mb-3 col-6 justify-content-left">
-                <label class="form-label">Item:</label>
-                <select name="review[item]" class="ml-2" id="item-selector">
-                  <option value="default">Select An Item</option>
-                  <option value="Big_Den">Big Den</option>
-                  <option value="Half_Pounder">Half Pounder</option>
-                  <option value="Chicken_McBucket">Chicken McBucket</option>
-                  <option value="Italian_Fries">Italian Fries</option>
-                  <option value="McBlurry">McBlurry</option>
-                </select>
-              </div>
-            </div>
-            <div class="mb-3 col-12">
-              <label class="form-label">Text</label>
-              <textarea rows="5" class="form-control body-input" name="review[body]" required></textarea>
-            </div>
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-dark">Sumbit</button>
-            </div>
-          </form> -->
 
           <div class="review">
             <div><h2 id="review-list-header"></h2></div>

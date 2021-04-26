@@ -11,6 +11,7 @@ const events = require('./events')
 $(() => {
   store.user = null
   $('.signed-in-feature').hide()
+  $('.error-div').hide()
   events.onIndexAll()
   $('#sign-up-form').on('submit', events.onSignUp)
   $('#sign-in-form').on('submit', events.onSignIn)
