@@ -4,7 +4,7 @@ const config = require('./config')
 const store = require('./store.js')
 
 const signUp = function (formData) {
-  console.log('signUp')
+  // console.log('signUp')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-up',
@@ -13,7 +13,7 @@ const signUp = function (formData) {
 }
 
 const signIn = function (formData) {
-  console.log('signIn')
+  // console.log('signIn')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-in',
@@ -22,7 +22,7 @@ const signIn = function (formData) {
 }
 
 const changePassword = function (formData) {
-  console.log('changePassword')
+  // console.log('changePassword')
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password',
@@ -34,7 +34,7 @@ const changePassword = function (formData) {
 }
 
 const signOut = function () {
-  console.log('signOut')
+  // console.log('signOut')
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',
@@ -45,7 +45,7 @@ const signOut = function () {
 }
 
 const createReview = function (formData) {
-  console.log('createReview')
+  // console.log('createReview')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/reviews',
@@ -57,7 +57,7 @@ const createReview = function (formData) {
 }
 
 const index = function () {
-  console.log('index ' + store.indexPath)
+  // console.log('index ' + store.indexPath)
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + store.indexPath
@@ -65,7 +65,7 @@ const index = function () {
 }
 
 const deleteReview = function (id) {
-  console.log('deleteReview')
+  // console.log('deleteReview')
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/reviews/' + id,
@@ -76,7 +76,7 @@ const deleteReview = function (id) {
 }
 
 const editReview = function (id, formData) {
-  console.log('editReview')
+  // console.log('editReview')
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/reviews/' + id,

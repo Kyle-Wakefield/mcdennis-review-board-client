@@ -8,11 +8,11 @@ const getFormFields = require('./../../lib/get-form-fields.js')
 const onSignUp = function (event) {
   // Prevent the page from refreshing when the form is submitted
   event.preventDefault()
-  console.log('onSignUp')
+  // console.log('onSignUp')
 
   // Obtain the information entered by the user
   const formData = getFormFields(event.target)
-  console.log(formData)
+  // console.log(formData)
   api.signUp(formData)
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpError)
@@ -21,11 +21,11 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   // Prevent the page from refreshing when the form is submitted
   event.preventDefault()
-  console.log('onSignIn')
+  // console.log('onSignIn')
 
   // Obtain the information entered by the user
   const formData = getFormFields(event.target)
-  console.log(formData)
+  // console.log(formData)
   api.signIn(formData)
     .then(response => {
       ui.onSignInSuccess(response)
@@ -37,11 +37,11 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   // Prevent the page from refreshing when the form is submitted
   event.preventDefault()
-  console.log('onChangePassword')
+  // console.log('onChangePassword')
 
   // Obtain the information entered by the user
   const formData = getFormFields(event.target)
-  console.log(formData)
+  // console.log(formData)
   api.changePassword(formData)
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordError)
@@ -50,7 +50,7 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   // Prevent the page from refreshing when the button is clicked
   event.preventDefault()
-  console.log('onSignOut')
+  // console.log('onSignOut')
 
   api.signOut()
     .then(response => {
@@ -65,7 +65,7 @@ const onCreateReview = function (event) {
   // Prevent the page from refreshing when the button is clicked
   event.preventDefault()
   const formData = getFormFields(event.target)
-  console.log(formData)
+  // console.log(formData)
 
   api.createReview(formData)
     .then(response => {
@@ -76,7 +76,7 @@ const onCreateReview = function (event) {
 }
 
 const onIndex = function () {
-  console.log('onIndex')
+  // console.log('onIndex')
   api.index()
     .then((response) => {
       ui.onIndexSuccess(response)
@@ -89,20 +89,20 @@ const onIndex = function () {
 }
 
 const onIndexAll = function () {
-  console.log('onIndexAll')
+  // console.log('onIndexAll')
   store.indexPath = '/reviews'
   onIndex()
 }
 
 const onIndexSelf = function () {
-  console.log('onIndexSelf')
+  // console.log('onIndexSelf')
   store.indexedUser = store.user.email
   store.indexPath = '/reviews/users/' + store.user._id
   onIndex()
 }
 
 const onIndexItem = function (event) {
-  console.log('onIndexItem')
+  // console.log('onIndexItem')
   const item = event.target.dataset.item
   store.indexedItem = item.replace('_', ' ')
   store.indexPath = '/reviews/items/' + item
@@ -110,8 +110,8 @@ const onIndexItem = function (event) {
 }
 
 const onDeleteReview = function (event) {
-  console.log('onDeleteReview ' + event.target)
-  console.log(event.target.parentElement.parentElement.dataset._id)
+  // console.log('onDeleteReview ' + event.target)
+  // console.log(event.target.parentElement.parentElement.dataset._id)
   api.deleteReview(event.target.parentElement.parentElement.dataset._id)
     .then((response) => {
       ui.onDeleteReviewSuccess(response)
@@ -122,11 +122,11 @@ const onDeleteReview = function (event) {
 
 const onEditReview = function (event) {
   event.preventDefault()
-  console.log('onEditReview ' + event.target)
-  console.log(store.editedReview)
+  // console.log('onEditReview ' + event.target)
+  // console.log(store.editedReview)
 
   const formData = getFormFields(event.target)
-  console.log(formData)
+  // console.log(formData)
   api.editReview(store.editedReview, formData)
     .then((response) => {
       ui.onEditReviewSuccess(response)

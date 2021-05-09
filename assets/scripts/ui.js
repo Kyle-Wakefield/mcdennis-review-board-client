@@ -2,8 +2,8 @@
 
 const store = require('./store')
 
-const onError = function (err) {
-  console.log(err)
+const onError = function () {
+  // console.log(err)
 }
 
 const onSignUpError = function (err) {
@@ -36,32 +36,34 @@ const onEditReviewError = function (err) {
   onError(err)
 }
 
-const onSuccess = function (action, response) {
-  console.log(action)
-  console.log(response)
+const onSuccess = function (message, response) {
+  // console.log(message)
+  // console.log(response)
   $('.modal').modal('hide')
   $('form').trigger('reset')
+  $('#success-message-modal').modal('show')
+  $('#success-message-div').html(`<h4>${message}</h4>`)
 }
 
 const onSignUpSuccess = function (response) {
-  onSuccess('Sign Up Success', response)
+  onSuccess('Successfully Signed Up', response)
 }
 
 const onSignInSuccess = function (response) {
-  onSuccess('Sign In Success', response)
+  onSuccess('Successfully Logged In', response)
   store.user = response.user
-  console.log(store.user)
+  // console.log(store.user)
   $('.signed-in-feature').show()
   $('.signed-out-feature').hide()
   $('#signed-in-as-div').html('Logged in as: ' + store.user.email)
 }
 
 const onChangePasswordSuccess = function (response) {
-  onSuccess('Change Password Success', response)
+  onSuccess('Successfully Changed Password', response)
 }
 
 const onSignOutSuccess = function (response) {
-  onSuccess('Sign Out Success', response)
+  onSuccess('Successfully Signed Out', response)
   $('.signed-out-feature').show()
   $('.signed-in-feature').hide()
   store.user = null
@@ -69,12 +71,10 @@ const onSignOutSuccess = function (response) {
 }
 
 const onCreateReviewSuccess = function (response) {
-  onSuccess('Create Review Success', response)
+  onSuccess('Successfully Created Review', response)
 }
 
 const onIndexSuccess = function (response) {
-  onSuccess('Index Success', response)
-
   // Change the name of the review list based on the current index path
   if (store.indexPath === '/reviews') {
     $('#review-list-header').html('All Reviews')
@@ -117,11 +117,11 @@ const onIndexSuccess = function (response) {
 }
 
 const onDeleteReviewSuccess = function (response) {
-  onSuccess('Delete Success', response)
+  onSuccess('Successfully Deleted Review', response)
 }
 
 const onEditReviewSuccess = function (response) {
-  onSuccess('Edit Success', response)
+  onSuccess('Successfully Edited Review', response)
 }
 
 module.exports = {
