@@ -33,4 +33,4 @@ Users who are signed in can currently sign out, change their password, view all 
 -Emails are not currently verified in any way
 -Although the API does hash passwords, Security is not currently guaranteed, so it's highly recommended that you use a fake email and password while using the app.
 -There is currently no language filter implemented, and anyone can add a review, so you may encounter explicit language while using the app.
--The app does not currently adapt well to small screens. This feature will likely be added in the future.
+-The app does not currently adapt well to small screens. This feature will likely be added in the future.  
