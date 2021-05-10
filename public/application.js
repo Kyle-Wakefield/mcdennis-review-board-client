@@ -16568,22 +16568,22 @@ var getFormFields = __webpack_require__(342);
 var onSignUp = function onSignUp(event) {
   // Prevent the page from refreshing when the form is submitted
   event.preventDefault();
-  console.log('onSignUp');
+  // console.log('onSignUp')
 
   // Obtain the information entered by the user
   var formData = getFormFields(event.target);
-  console.log(formData);
+  // console.log(formData)
   api.signUp(formData).then(ui.onSignUpSuccess).catch(ui.onSignUpError);
 };
 
 var onSignIn = function onSignIn(event) {
   // Prevent the page from refreshing when the form is submitted
   event.preventDefault();
-  console.log('onSignIn');
+  // console.log('onSignIn')
 
   // Obtain the information entered by the user
   var formData = getFormFields(event.target);
-  console.log(formData);
+  // console.log(formData)
   api.signIn(formData).then(function (response) {
     ui.onSignInSuccess(response);
     onIndex();
@@ -16593,18 +16593,18 @@ var onSignIn = function onSignIn(event) {
 var onChangePassword = function onChangePassword(event) {
   // Prevent the page from refreshing when the form is submitted
   event.preventDefault();
-  console.log('onChangePassword');
+  // console.log('onChangePassword')
 
   // Obtain the information entered by the user
   var formData = getFormFields(event.target);
-  console.log(formData);
+  // console.log(formData)
   api.changePassword(formData).then(ui.onChangePasswordSuccess).catch(ui.onChangePasswordError);
 };
 
 var onSignOut = function onSignOut(event) {
   // Prevent the page from refreshing when the button is clicked
   event.preventDefault();
-  console.log('onSignOut');
+  // console.log('onSignOut')
 
   api.signOut().then(function (response) {
     ui.onSignOutSuccess(response);
@@ -16617,7 +16617,7 @@ var onCreateReview = function onCreateReview(event) {
   // Prevent the page from refreshing when the button is clicked
   event.preventDefault();
   var formData = getFormFields(event.target);
-  console.log(formData);
+  // console.log(formData)
 
   api.createReview(formData).then(function (response) {
     ui.onCreateReviewSuccess(response);
@@ -16626,7 +16626,7 @@ var onCreateReview = function onCreateReview(event) {
 };
 
 var onIndex = function onIndex() {
-  console.log('onIndex');
+  // console.log('onIndex')
   api.index().then(function (response) {
     ui.onIndexSuccess(response);
     $('.delete-review-button').on('click', onDeleteReview);
@@ -16637,20 +16637,20 @@ var onIndex = function onIndex() {
 };
 
 var onIndexAll = function onIndexAll() {
-  console.log('onIndexAll');
+  // console.log('onIndexAll')
   store.indexPath = '/reviews';
   onIndex();
 };
 
 var onIndexSelf = function onIndexSelf() {
-  console.log('onIndexSelf');
+  // console.log('onIndexSelf')
   store.indexedUser = store.user.email;
   store.indexPath = '/reviews/users/' + store.user._id;
   onIndex();
 };
 
 var onIndexItem = function onIndexItem(event) {
-  console.log('onIndexItem');
+  // console.log('onIndexItem')
   var item = event.target.dataset.item;
   store.indexedItem = item.replace('_', ' ');
   store.indexPath = '/reviews/items/' + item;
@@ -16658,8 +16658,8 @@ var onIndexItem = function onIndexItem(event) {
 };
 
 var onDeleteReview = function onDeleteReview(event) {
-  console.log('onDeleteReview ' + event.target);
-  console.log(event.target.parentElement.parentElement.dataset._id);
+  // console.log('onDeleteReview ' + event.target)
+  // console.log(event.target.parentElement.parentElement.dataset._id)
   api.deleteReview(event.target.parentElement.parentElement.dataset._id).then(function (response) {
     ui.onDeleteReviewSuccess(response);
     onIndex();
@@ -16668,11 +16668,11 @@ var onDeleteReview = function onDeleteReview(event) {
 
 var onEditReview = function onEditReview(event) {
   event.preventDefault();
-  console.log('onEditReview ' + event.target);
-  console.log(store.editedReview);
+  // console.log('onEditReview ' + event.target)
+  // console.log(store.editedReview)
 
   var formData = getFormFields(event.target);
-  console.log(formData);
+  // console.log(formData)
   api.editReview(store.editedReview, formData).then(function (response) {
     ui.onEditReviewSuccess(response);
     onIndex();
@@ -16701,8 +16701,8 @@ module.exports = {
 
 var store = __webpack_require__(67);
 
-var onError = function onError(err) {
-  console.log(err);
+var onError = function onError() {
+  // console.log(err)
 };
 
 var onSignUpError = function onSignUpError(err) {
@@ -16745,32 +16745,34 @@ var onEditReviewError = function onEditReviewError(err) {
   onError(err);
 };
 
-var onSuccess = function onSuccess(action, response) {
-  console.log(action);
-  console.log(response);
+var onSuccess = function onSuccess(message, response) {
+  // console.log(message)
+  // console.log(response)
   $('.modal').modal('hide');
   $('form').trigger('reset');
+  $('#success-message-modal').modal('show');
+  $('#success-message-div').html('<h4>' + message + '</h4>');
 };
 
 var onSignUpSuccess = function onSignUpSuccess(response) {
-  onSuccess('Sign Up Success', response);
+  onSuccess('Successfully Signed Up', response);
 };
 
 var onSignInSuccess = function onSignInSuccess(response) {
-  onSuccess('Sign In Success', response);
+  onSuccess('Successfully Logged In', response);
   store.user = response.user;
-  console.log(store.user);
+  // console.log(store.user)
   $('.signed-in-feature').show();
   $('.signed-out-feature').hide();
   $('#signed-in-as-div').html('Logged in as: ' + store.user.email);
 };
 
 var onChangePasswordSuccess = function onChangePasswordSuccess(response) {
-  onSuccess('Change Password Success', response);
+  onSuccess('Successfully Changed Password', response);
 };
 
 var onSignOutSuccess = function onSignOutSuccess(response) {
-  onSuccess('Sign Out Success', response);
+  onSuccess('Successfully Signed Out', response);
   $('.signed-out-feature').show();
   $('.signed-in-feature').hide();
   store.user = null;
@@ -16778,12 +16780,10 @@ var onSignOutSuccess = function onSignOutSuccess(response) {
 };
 
 var onCreateReviewSuccess = function onCreateReviewSuccess(response) {
-  onSuccess('Create Review Success', response);
+  onSuccess('Successfully Created Review', response);
 };
 
 var onIndexSuccess = function onIndexSuccess(response) {
-  onSuccess('Index Success', response);
-
   // Change the name of the review list based on the current index path
   if (store.indexPath === '/reviews') {
     $('#review-list-header').html('All Reviews');
@@ -16810,11 +16810,11 @@ var onIndexSuccess = function onIndexSuccess(response) {
 };
 
 var onDeleteReviewSuccess = function onDeleteReviewSuccess(response) {
-  onSuccess('Delete Success', response);
+  onSuccess('Successfully Deleted Review', response);
 };
 
 var onEditReviewSuccess = function onEditReviewSuccess(response) {
-  onSuccess('Edit Success', response);
+  onSuccess('Successfully Edited Review', response);
 };
 
 module.exports = {
@@ -16846,7 +16846,7 @@ var config = __webpack_require__(341);
 var store = __webpack_require__(67);
 
 var signUp = function signUp(formData) {
-  console.log('signUp');
+  // console.log('signUp')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-up',
@@ -16855,7 +16855,7 @@ var signUp = function signUp(formData) {
 };
 
 var signIn = function signIn(formData) {
-  console.log('signIn');
+  // console.log('signIn')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-in',
@@ -16864,7 +16864,7 @@ var signIn = function signIn(formData) {
 };
 
 var changePassword = function changePassword(formData) {
-  console.log('changePassword');
+  // console.log('changePassword')
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/change-password',
@@ -16876,7 +16876,7 @@ var changePassword = function changePassword(formData) {
 };
 
 var signOut = function signOut() {
-  console.log('signOut');
+  // console.log('signOut')
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/sign-out',
@@ -16887,7 +16887,7 @@ var signOut = function signOut() {
 };
 
 var createReview = function createReview(formData) {
-  console.log('createReview');
+  // console.log('createReview')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/reviews',
@@ -16899,7 +16899,7 @@ var createReview = function createReview(formData) {
 };
 
 var index = function index() {
-  console.log('index ' + store.indexPath);
+  // console.log('index ' + store.indexPath)
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + store.indexPath
@@ -16907,7 +16907,7 @@ var index = function index() {
 };
 
 var deleteReview = function deleteReview(id) {
-  console.log('deleteReview');
+  // console.log('deleteReview')
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/reviews/' + id,
@@ -16918,7 +16918,7 @@ var deleteReview = function deleteReview(id) {
 };
 
 var editReview = function editReview(id, formData) {
-  console.log('editReview');
+  // console.log('editReview')
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/reviews/' + id,
