@@ -2,6 +2,7 @@
 
 ## Links
 Deployed App: https://kyle-wakefield.github.io/mcdennis-review-board-client/
+API Repository: https://github.com/Kyle-Wakefield/mcdennis-review-board-main
 
 ## USER STORIES
 As a signed-out user, I want to:\
@@ -25,7 +26,7 @@ As a signed-in user, I want to:\
 ![wireframe-modals](https://media.git.generalassemb.ly/user/35162/files/d9ee4f80-a296-11eb-88ca-8e9831f56653)
 
 ## DESCRIPTION
-This is an app that allows users to view, create, edit, and delete reviews of a fictional fast food chain called "McDennis". It connects to an API also created by me and hosted at https://kyle-wakefield.github.io/mcdennis-review-board-client/ \
+This is an app that allows users to view, create, edit, and delete reviews of a fictional fast food chain called "McDennis". It connects to an API also created by me and hosted at https://mcdennis-review-board.herokuapp.com \
 Users who are not signed in can currently sign up with a new account, sign in with an existing account, view all reviews, and view all reviews of a specific item.\
 Users who are signed in can currently sign out, change their password, view all reviews, view all reviews of a specific item, view all of their own reviews, leave their own reviews, edit their own reviews, and delete their own reviews.
 
