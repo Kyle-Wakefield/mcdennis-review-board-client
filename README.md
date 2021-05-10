@@ -1,7 +1,7 @@
 # McDennis Review Board Client
 
 ## Links
-Deployed App: https://kyle-wakefield.github.io/mcdennis-review-board-client/
+Deployed App: https://kyle-wakefield.github.io/mcdennis-review-board-client/ \
 API Repository: https://github.com/Kyle-Wakefield/mcdennis-review-board-main
 
 ## USER STORIES
