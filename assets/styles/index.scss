@@ -1,0 +1,148 @@
+@import '~bootstrap/scss/bootstrap';
+
+$mcdennis-yellow: #ffc90e;
+$mcdennis-red: #ff0700;
+$plain-white: #fff;
+$plain-black: #000;
+$gold: #705711;
+
+body {
+  background-color: $mcdennis-yellow;
+}
+
+h2 {
+  font-weight: bold;
+  text-align: center;
+}
+
+img {
+  cursor: pointer;
+  margin: 10px;
+  max-height: 15%;
+  width: auto;
+
+  &:hover {
+    filter: brightness(70%);
+  }
+}
+
+.page-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  width: 13%;
+}
+
+.main-column {
+  display: flex;
+  flex-direction: column;
+  width: 87%;
+}
+
+.top-bar {
+  background-color: $mcdennis-red;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px;
+  padding: 10px;
+  width: auto;
+}
+
+.btn-dark {
+  color: $mcdennis-yellow;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.modal-content {
+  background-color: $mcdennis-red;
+  color: $plain-white;
+  font-weight: bold;
+}
+
+.review {
+  background-color: $mcdennis-red;
+  border-radius: 5px;
+  color: $plain-white;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px;
+}
+
+.title-input {
+  width: 100%;
+}
+
+.review-list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-review-div {
+  background-color: $plain-white;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 5px;
+  width: 95%;
+
+  & div {
+    background-color: $plain-white;
+    color: $gold;
+  }
+}
+
+.divider {
+  border-top: 3px solid $plain-black;
+  margin: 5px -5px;
+}
+
+.review-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  & span {
+    color: $gold;
+    font-size: 27px;
+    margin: 0 5px;
+  }
+
+  & .title-span {
+    font-size: 30px;
+    text-decoration: underline;
+  }
+}
+
+.review-body {
+  font-size: 20px;
+  margin: 0 6px 15px;
+}
+
+.review-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.black-border {
+  border: 5px solid $plain-black;
+}
+
+.signed-in-as {
+  color: $plain-black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.error-div {
+  font-size: 25px;
+  margin: 3px 0 -5px;
+  text-align: center;
+}
