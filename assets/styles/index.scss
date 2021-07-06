@@ -16,9 +16,12 @@ h2 {
 }
 
 img {
+  background-color: $plain-black;
+  border-radius: 5px;
   cursor: pointer;
   margin: 10px;
   max-height: 15%;
+  padding: 2px;
   width: auto;
 
   &:hover {
